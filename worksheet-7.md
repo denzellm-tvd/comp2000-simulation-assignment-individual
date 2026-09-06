@@ -106,11 +106,85 @@ I believe the above snippet of code demonstrates my use of encapsulation as it s
 ## 3. Generics and Exceptions
 
 **3.1.** List every place your code uses generics (e.g. `ArrayList<Actor>`, `Optional<Cell>`, `HashMap<String, Team>`). If you deliberately used none, explain why.
+* In World.java
+```
+import java.util.ArrayList;
+import java.util.List;
 
+public class World {
+    private final List<FoodSource> foodSources;
 
+    public World(int width, int height) {
+        this.foodSources = new ArrayList<>();
+    }
 
+    public List<FoodSource> getFoodSources() { return Collections.unmodifiableList(foodSources); }
+}
+```
+* In Scout.java
+```
+import java.util.List;
 
+public class Scout extends Ant {
+    @Override
+    public Cell chooseNextCell(Map map) {
+        List<Cell> neighbours = map.getNeighbours(position);        
+    }
+}
+```
+* In Map.java
+```
+import java.util.ArrayList;
+import java.util.List;
 
+public class Map {
+    public List<Cell> getNeighbours(Cell cell) {
+        List<Cell> neighbours = new ArrayList<>();
+        return neighbours;
+    }
+}
+```
+* In Forager.java
+```
+import java.util.List;
+
+public class Forager extends Ant {
+    @Override
+    public Cell chooseNextCell(Map map) {
+        List<Cell> neighbours = map.getNeighbours(position);
+        
+        List<Cell> bestCells = neighbours.stream()
+                .filter(cell -> Math.abs(cell.getPheromone() - strongest) < 10)
+                .toList();
+        return bestCells.get(random.nextInt(bestCells.size()));
+    }
+}
+```
+* In Colony.java
+```
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Colony {
+    private final List<Ant> ants;
+    private final List<Ant> scouts;
+    private final List<Ant> foragers;
+
+    public List<Ant> getAnts() {
+        return Collections.unmodifiableList(ants);
+    }
+
+    public List<Ant> getScouts() {
+        return Collections.unmodifiableList(scouts);
+    }
+
+    public List<Ant> getForagers() {
+        return Collections.unmodifiableList(foragers);
+    }
+}
+```
+<br>
 **3.2.** List every place your code handles exceptions (try/catch, throws, custom exception classes). What error is each protecting against?
 
 
