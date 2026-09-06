@@ -88,9 +88,18 @@ The class that I think has the best design is Map. I believe this is the case be
 
 **2.4.** Paste one code snippet that demonstrates your use of polymorphism or encapsulation.  Include an explanation of _how_ this demonstrates polymorphim or encapsulation.  Give a reference to a provided reading that talks about this type of polymorphism or encapsulation. <br>
 
+```
+public class Cell { // Demonstration of encapsulation
+    private double pheromone;
 
+    public double getPheromone() { return pheromone; } // Getter
 
-
+    public void addPheromone(double amount) { // Setter
+        if (amount > 0) pheromone += amount;
+    }
+}
+```
+I believe the above snippet of code demonstrates my use of encapsulation as it showcases a private variable, `pheromone`, a get method, `getPheromone()`, and a set method, `addPheromone()`. The get method returns the value of the private variable and the set method increases the private variable by the amount, provided the amount is above 0. This is consistent with the information provided in _Learning Java 3rd Ed_ where encapsulation is introduced as "one of the most important aspects of object-oriented design" (6.4 Visibility of Variables and Methods) and explained in more detail in 6.6 Inner Classes.
 
 ---
 
