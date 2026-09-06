@@ -13,7 +13,8 @@
 **1.1.** Paste the first 10 lines of the output of `git log --graph --oneline --all` from your repository:
 
 ```
-* c03524c (HEAD -> main, origin/main, origin/HEAD) Made minor changes to the simulation
+* 9346969 (HEAD -> main, origin/main, origin/HEAD) Update README.md
+* c03524c Made minor changes to the simulation
 * d099d57 feat: update simulation
 * a5d325e chore: add gitignore
 * ab1f6de feat: update Main
@@ -22,14 +23,13 @@
 * 3528dd6 Delete Nest.java
 * f4ae74d Delete Map.java
 * f80299e Delete Food.java
-* 458e7f0 Delete Cell.java
 ```
 
 ### 1.2. Describe your workflow. Did you use branches? Pull requests? <br>
 I did not use branches or pull requests. My team members held a meeting where they discussed the assignment, what to do, and how to start. From there, they designed a rough UML diagram of the objects and classes to design in the simulation before getting to work, coding everything to match their diagram. I looked at the code they made, ran some tests to see how it functioned, then noted in my head certain things that I noticed and wanted to change before making those changes and running further tests. Once I was satisfied with the changes, I finally committed and pushed to the repository.
 
 ### 1.3. Estimate the percentage of commits you contributed relative to the total in your repository. <br>
-2.6%. As of writing this, there are 38 commits in my team repository, and although I only contributed 1 commit, that is because I waited until I was done making all the changes I wanted to make before finally committing. I know that the optimal thing to do would be to commit and push as often as possible rather than at the last minute to prevent anything going wrong that would make me lose all my work, however I was frankly having fun watching the simulation run and making changes here and there which led to me forgetting to commit until I was done making all the changes.
+5.12%. As of writing this, there are 39 commits in my team repository, and although I only contributed 2 commits (one of them being updating README.md), that is because I waited until I was done making all the changes I wanted to make before finally committing. I know that the optimal thing to do would be to commit and push as often as possible rather than at the last minute to prevent anything going wrong that would make me lose all my work, however I was frankly having fun watching the simulation run and making changes here and there which led to me forgetting to commit until I was done making all the changes.
 
 ---
 
