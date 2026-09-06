@@ -203,10 +203,10 @@ It protects against errors caused when the inputted position is null.
 <br>
 
 **3.3.** Paste a code snippet showing either a generic class/method or a try/catch block.
-
-
-
-
+```
+N/A
+```
+<br>
 
 ---
 
