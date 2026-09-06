@@ -188,12 +188,19 @@ public class Colony {
 <br>
 
 **3.2.** List every place your code handles exceptions (try/catch, throws, custom exception classes). What error is each protecting against?
-* Ant.java in the object constructor `public Ant(Cell position)`
-It protects against IllegalArgumentExceptions as the ant position cannot be null.
-* Cell.java in the `evaporate()` method
-It protects against IllegalArgumentExceptions as the evaporation rate must be between 0-1.
-* 
-
+* Ant.java in the object constructor `public Ant(Cell position)` <br>
+It protects against errors caused when the set position is null.
+* Cell.java in the `evaporate(double rate)` method <br>
+It protects against errors caused when the inputted rate does not fall between 0-1.
+* Colony.java in the object constructor `public Colony(Nest nest)` <br>
+It protects against errors caused when the inputted nest doesn't exist and is "null."
+* FoodSource.java in the object constructor `public FoodSource(Cell position, int amount, int initialAmount)` <br>
+It protects against errors caused when the inputted amount is a negative number.
+* Map.java in the object constructor `public Map(int width, int height)` <br>
+It protects against errors caused when either the width or height values are negative.
+* MapObject.java in the object constructor `public MapObject(Cell position)` <br>
+It protects against errors caused when the inputted position is null.
+<br>
 
 **3.3.** Paste a code snippet showing either a generic class/method or a try/catch block.
 
