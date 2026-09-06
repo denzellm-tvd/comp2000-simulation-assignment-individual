@@ -4,7 +4,7 @@
 
 **Student ID:** 48412953
 
-**GitHub repo URL:** https://github.com/denzellm-tvd/comp2000-simulation-assignment-individual
+**GitHub repo URL:** https://github.com/denzellm-tvd/comp2000-simulation-assignment-thing-team
 
 ---
 
@@ -13,16 +13,16 @@
 **1.1.** Paste the first 10 lines of the output of `git log --graph --oneline --all` from your repository:
 
 ```
-* 5216830 (HEAD -> main, origin/main, origin/HEAD) Update worksheet-7.md
-* b230ae2 Rename World.java to src/World.java
-* 5446568 Rename SimulationPanel.java to src/SimulationPanel.java
-* afdd646 Rename Scout.java to src/Scout.java
-* bd33058 Rename Nest.java to src/Nest.java
-* 40e7d6f Rename MapObject.java to src/MapObject.java
-* b985c0f Rename Map.java to src/Map.java
-* 88f85e8 Rename Main.java to src/Main.java
-* 11f706e Rename Forager.java to src/Forager.java
-* 31d8740 Rename FoodSource.java to src/FoodSource.java
+* c03524c (HEAD -> main, origin/main, origin/HEAD) Made minor changes to the simulation
+* d099d57 feat: update simulation
+* a5d325e chore: add gitignore
+* ab1f6de feat: update Main
+* 3902277 Delete Main.java
+* 43ad144 Delete MapObject.java
+* 3528dd6 Delete Nest.java
+* f4ae74d Delete Map.java
+* f80299e Delete Food.java
+* 458e7f0 Delete Cell.java
 ```
 
 ### 1.2. Describe your workflow. Did you use branches? Pull requests? <br>
@@ -80,13 +80,13 @@ The child (SimulationPanel) inherits all properties and methods of the generic l
 <br>
 
 
-**2.3.** Pick the class that you think has the best design. Explain why.
+**2.3.** Pick the class that you think has the best design. Explain why. <br>
+The class that I think has the best design is Map. I believe this is the case because it showcases some of the hallmarks of good class design such as encapsulation in the form of private fields like width, height and cells, it serves mostly one function which is to track individual cells and their positions, and it is immutable. Additionally, I believe everything within the Map class is readable and aesthetically pleasing in that sense as I believe it to be organised, simple, and easy to read.
+
+<br>
 
 
-
-
-
-**2.4.** Paste one code snippet that demonstrates your use of polymorphism or encapsulation.  Include an explanation of _how_ this demonstrates polymorphim or encapsulation.  Give a reference to a provided reading that talks about this type of polymorphism or encapsulation.
+**2.4.** Paste one code snippet that demonstrates your use of polymorphism or encapsulation.  Include an explanation of _how_ this demonstrates polymorphim or encapsulation.  Give a reference to a provided reading that talks about this type of polymorphism or encapsulation. <br>
 
 
 
