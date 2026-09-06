@@ -212,20 +212,41 @@ It protects against errors caused when the inputted position is null.
 
 ## 4. Log Book
 
-**4.1.** Attach or link your log book entries for Weeks 1–6.
+**4.1.** Attach or link your log book entries for Weeks 1–6. <br>
+[https://docs.google.com/document/d/16jLZRBHE6x8DS-6E5wCxqDy3OaU6kCU0HIckpNlaMKc/edit?usp=sharing](https://docs.google.com/document/d/16jLZRBHE6x8DS-6E5wCxqDy3OaU6kCU0HIckpNlaMKc/edit?usp=sharing)
 
 
-
-
-
-**4.2.** Which week's activity taught you the most? What did you learn?
+**4.2.** Which week's activity taught you the most? What did you learn? <br>
+Unfortunately I was not present for most of the weeks, which meant I was unable to learn much from the activities. However, I would say that week 1's activity taught me the most as I learned about team-based learning, what it was and what it entails, allowing me to understand the process behind it that will be used in classes moving forward.
 
 ---
 
 ## 5. Uniqueness and Creativity
 
-**5.1.** List everything you added to the project that was not part of the in-class activities.
+**5.1.** List everything you added to the project that was not part of the in-class activities. <br>
+Since I was not present for the in-class activities, everything I added to the project would not be considered part of them, so here is a list of everything I added:
+* randomisation to food source and nest spawns when running simulation
+* added additional variables to allow Scout and Forager ants to be tracked
+* added additional text to the bottom of the application interface that shows total amount of ants, including both types
+* added an additional method to the FoodSource class to get the percentage of food remaining on an individual source
+* added a cosmetic change where food source tiles will darken in colour the lower the percentage of food remainining there is
+* scout ants will leave behind pheromone trails wherever they go to further distinguish between the two types in addition to them being immune to pheromones
+* food sources with amounts > 0 will increase pheromone amounts in neighbouring tiles and their own tile with the intent of luring ants to them
 
-**5.2.** Which feature required the most independent research or problem-solving? What did you learn from it?
+**5.2.** Which feature required the most independent research or problem-solving? What did you learn from it? <br>
+I believe the colour-changing feature of food source tiles required the most independent research for me since I am not accustomed to Java and had to research how to integrate percentages/double values into the setColor method. I learned to use `(int) Math.round()` in order to effectively convert doubles to ints since the setColor method only accepts int values.
 
-**5.3.** Paste one code snippet that you are especially proud of. Explain why it goes beyond what was done in class.
+**5.3.** Paste one code snippet that you are especially proud of. Explain why it goes beyond what was done in class. <br>
+```
+public class FoodSource extends MapObject { // FoodSource.java
+    public double getPercent() { return (double) amount / initialAmount; }
+}
+
+for (FoodSource source : world.getFoodSources()) { // SimulationPanel.java
+    if (source.isAvailable()) {
+        g.setColor(new Color(0, (int) Math.round(140 * source.getPercent()), 0));
+        g.fillRect(source.getPosition().getX() * CELL_SIZE, source.getPosition().getY() * CELL_SIZE, CELL_SIZE, CELL_SIZE);                
+    }
+}
+```
+In that vein, I would say I am especially proud of this code snippet. This is because although I was not present for the class activities, I am uncertain that said activities dabbled in double values and converting from them to int, especially for use in colour changing based on an object's percent value. As such, I would consider this going beyond what was done in class.
