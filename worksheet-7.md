@@ -43,28 +43,41 @@ The World class is a crucial class that sets up the map and initiates the ant co
 2. Map <br>
 The Map class creates the grid when the simulation initiates alongside tracking each individual cell in said grid through methods such as getNeighbours() and getCell(). It also houses a method that allows cells with pheromone values above 0 to decay over time, ensuring that it does not last forever.
 3. FoodSource <br>
-The FoodSource class creates and tracks food sources that are scattered around the map that the ants will forage to and collect. It houses methods that allow the ants to take food if it is available (that is, its amount value is above 0) alongside methods that allow other scripts to track each individual source's food amount and the percentage remaining.
+The FoodSource subclass creates and tracks food sources that are scattered around the map that the ants will forage to and collect. It houses methods that allow the ants to take food if it is available (that is, its amount value is above 0) alongside methods that allow other scripts to track each individual source's food amount and the percentage remaining.
 4. Colony <br>
 The Colony class is arguably one of the most important in the simulation as it is directly responsible for controlling what each and every ant does, including movement and food collection.
 5. Cell <br>
 The Cell class is responsible for tracking each individual cell's pheromone values alongside housing methods to add or remove pheromones.
 6. Nest <br>
-The Nest class serves as the ant colony's home base. It is responsible for tracking the food stored within it alongside managing interactions between ants and itself.
+The Nest subclass serves as the ant colony's home base. It is responsible for tracking the food stored within it alongside managing interactions between ants and itself.
 7. MapObject <br>
-MapObject is an abstract that is responsible for tracking the positions of each cell on the map and setting the position of objects when created.
+The MapObject class is responsible for tracking the positions of each cell on the map and setting the position of objects when created.
 8. Ant <br>
-The Ant class houses all the variables and methods that allow each ant to function properly in the simulation. This includes getting its position, moving from cell to cell, picking up and dropping food, and whether or not the ant is a scout.
+The Ant class houses all the variables and methods that allow each ant to function properly in the simulation. This includes tracking its position, movement, and picking up and dropping food.
 9. Scout <br>
-The Scout class is responsible for one of the two types of ants in the simulation. It serves to override the ant's movement function, slightly modifying it such that it will not be affected by the pheromone trails it leaves behind.
+The Scout subclass is responsible for one of the two types of ants in the simulation. It serves to override the ant's movement function, slightly modifying it such that it will not be affected by the pheromone trails it leaves behind.
 10. Forager <br>
-The Forager class is responsible for one of the two types of ants in the simulation. It serves to override the ant's movement function, slightly modifying it such that it will prioritise moving towards cells with pheromones than those without.
+The Forager subclass is responsible for one of the two types of ants in the simulation. It serves to override the ant's movement function, slightly modifying it such that it will prioritise moving towards cells with pheromones than those without.
+11. Main <br>
+Main is responsible for starting up the simulation and getting everything set up. It creates a world, creates food sources and scatters them in random cells, creates ants, and sets up the application's JFrame.
+12. SimulationPanel <br>
+This subclass is responsible for the application interface and its aesthetics. It allows objects such as food sources to be visible on the map with different colours to differentiate them from each other alongside showing basic stats such as the amount of food stored in the nest and the total amount of ants on the map.
 
  <br>
  
 **2.2.** Identify any inheritance relationships. For each parent–child pair, list what the child inherits and what it overrides.
+1. MapObject-FoodSource <br>
+The child (FoodSource) inherits the getPosition() method and the primary MapObject constructor that sets its position on the map. It overrides the interact() method.
+2. Ant-Scout <br>
+The child (Scout) inherits all properties and methods of the Ant class including the primary Ant constructor that sets its position and whether it is carrying food or not. It overrides the abstract method chooseNextCell().
+3. Ant-Forager <br>
+The child (Forager) inherits all properties and methods of the Ant class including the primary Ant constructor that sets its position and whether it is carrying food or not. It overrides the abstract method chooseNextCell().
+4. MapObject-Nest <br>
+The child (Nest) inherits the getPosition() method and the primary MapObject constructor that sets its position on the map. It overrides the interact() method.
+5. JPanel-SimulationPanel <br>
+The child (SimulationPanel) inherits all properties and methods of the generic lightweight container JPanel. It overrides the paintComponent() method.
 
-
-
+<br>
 
 
 **2.3.** Pick the class that you think has the best design. Explain why.
