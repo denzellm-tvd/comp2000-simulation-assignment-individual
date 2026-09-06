@@ -13,24 +13,23 @@
 **1.1.** Paste the first 10 lines of the output of `git log --graph --oneline --all` from your repository:
 
 ```
-
-
-
-
+* 5216830 (HEAD -> main, origin/main, origin/HEAD) Update worksheet-7.md
+* b230ae2 Rename World.java to src/World.java
+* 5446568 Rename SimulationPanel.java to src/SimulationPanel.java
+* afdd646 Rename Scout.java to src/Scout.java
+* bd33058 Rename Nest.java to src/Nest.java
+* 40e7d6f Rename MapObject.java to src/MapObject.java
+* b985c0f Rename Map.java to src/Map.java
+* 88f85e8 Rename Main.java to src/Main.java
+* 11f706e Rename Forager.java to src/Forager.java
+* 31d8740 Rename FoodSource.java to src/FoodSource.java
 ```
 
-**1.2.** Describe your workflow. Did you use branches? Pull requests?
+### 1.2. Describe your workflow. Did you use branches? Pull requests? <br>
+I did not use branches or pull requests. My team members held a meeting where they discussed the assignment, what to do, and how to start. From there, they designed a rough UML diagram of the objects and classes to design in the simulation before getting to work, coding everything to match their diagram. I looked at the code they made, ran some tests to see how it functioned, then noted in my head certain things that I noticed and wanted to change before making those changes and running further tests. Once I was satisfied with the changes, I finally committed and pushed to the repository.
 
-
-
-
-
-**1.3.** Estimate the percentage of commits you contributed relative to the total in your repository.
-
-
-
-
-
+### 1.3. Estimate the percentage of commits you contributed relative to the total in your repository. <br>
+2.6%. As of writing this, there are 38 commits in my team repository, and although I only contributed 1 commit, that is because I waited until I was done making all the changes I wanted to make before finally committing. I know that the optimal thing to do would be to commit and push as often as possible rather than at the last minute to prevent anything going wrong that would make me lose all my work, however I was frankly having fun watching the simulation run and making changes here and there which led to me forgetting to commit until I was done making all the changes.
 ---
 
 ## 2. Program Design
