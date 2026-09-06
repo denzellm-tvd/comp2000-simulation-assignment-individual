@@ -1,10 +1,10 @@
 # COMP2000 Worksheet 1 — Mid-Semester Submission
 
-**Student name:**
+**Student name:** Denzell Muliana
 
-**Student ID:**
+**Student ID:** 48412953
 
-**GitHub repo URL:** (your own fork of your team's repository, not your team's URL)
+**GitHub repo URL:** https://github.com/denzellm-tvd/comp2000-simulation-assignment-individual
 
 ---
 
