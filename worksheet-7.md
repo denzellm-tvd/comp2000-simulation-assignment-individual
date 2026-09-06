@@ -184,11 +184,15 @@ public class Colony {
     }
 }
 ```
+
 <br>
+
 **3.2.** List every place your code handles exceptions (try/catch, throws, custom exception classes). What error is each protecting against?
-
-
-
+* Ant.java in the object constructor `public Ant(Cell position)`
+It protects against IllegalArgumentExceptions as the ant position cannot be null.
+* Cell.java in the `evaporate()` method
+It protects against IllegalArgumentExceptions as the evaporation rate must be between 0-1.
+* 
 
 
 **3.3.** Paste a code snippet showing either a generic class/method or a try/catch block.
