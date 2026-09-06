@@ -30,6 +30,7 @@ I did not use branches or pull requests. My team members held a meeting where th
 
 ### 1.3. Estimate the percentage of commits you contributed relative to the total in your repository. <br>
 2.6%. As of writing this, there are 38 commits in my team repository, and although I only contributed 1 commit, that is because I waited until I was done making all the changes I wanted to make before finally committing. I know that the optimal thing to do would be to commit and push as often as possible rather than at the last minute to prevent anything going wrong that would make me lose all my work, however I was frankly having fun watching the simulation run and making changes here and there which led to me forgetting to commit until I was done making all the changes.
+
 ---
 
 ## 2. Program Design
