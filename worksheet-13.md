@@ -11,15 +11,22 @@
 Don't forget to submit a pdf file which shows a diagram of your pattern implemenation to supplement this text description.
 
 **1.1.** Which design pattern(s) did you implement? Name them and state where each appears in your codebase. <br>
-A design pattern that was implemented is the Ant Colony Simulation
-
-
-
+A design pattern that was implemented in the Ant Colony Simulation is a behavioural pattern known as Strategy. This can be seen in the Ant class that holds a MoveStrategy that determines where an individual ant goes, depending on its type (Scout, Forager, Soldier), and implements a concrete strategy like `random(ant, world)`, `followFoodTrail(ant, world)`, `goHome(ant, world)`, and `nearestFood()`.
 
 **1.2.** For each pattern, paste a code snippet showing the key interaction between participants. <br>
-
-
-
+```
+// Ant.java
+public void update() {
+        if (returningHome) {
+            Movement.goHome(this, world);
+            if (distanceTo(world.getNest().getX(), world.getNest().getY()) < 10) {
+                returnFoodToNest();
+            }
+            return;
+        }
+        strategy.chooseAndMove(this, world);
+    }
+```
 
 
 **1.3.** For each pattern, explain why you chose it over an alternative. What trade-off did you make? <br>
