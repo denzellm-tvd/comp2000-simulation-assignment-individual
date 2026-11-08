@@ -98,13 +98,10 @@ public Pheromone findFoodTrail(double x, double y, double range, FoodSource pref
                 .orElse(null);
     }
 ```
-
+What the code does, essentially, is determine where the closest pheromone trail towards a given food source is, with the code prioritisation a given ant's `preferredSource`. It goes through several checks to find the best possible trail for the ant before it applies its `followFoodTrail` movement strategy, firstly checking that the pheromone trail's strength value is above 0, then checking if the source that the trail leads to still has food and has not been fully depleted yet, then checking if the distance from the ant to the trail is within its given range, then a final check to ensure that the ant marches up the trail instead of backtracking towards the nest or somewhere else. Afterwards, if a trail passes all those tests, the code goes through a few more checks before returning anything, firstly checking if the source the trail leads to is the ant's `preferredSource`, the aforementioned prioritisation, then if multiple trails lead to the preferred source (or none) the code will pick the one furthest away, and finally as a tiebreaker if the trails are the same distance the code will prioritise the strongest one. I believe using a stream here is better than a loop because it makes the code look cleaner and also prevents the overuse of if-else statements which could clutter up the code and make it unnecessarily long.
 
 **2.3.** Did you use parallel streams, custom collectors, or the Fork/Join framework? If yes, how did you ensure thread safety? If no, where could parallelism be introduced? <br>
-
-
-
-
+Yes, parallel streams are used in the project. Thread safety was ensured by making the ants share pheromone states to keep the update loop single-threaded.
 
 ---
 
