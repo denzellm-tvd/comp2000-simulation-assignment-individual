@@ -135,7 +135,7 @@ I am unsure of what I would add or change if I had another 6 weeks, but assuming
 **4.2.** Reflect on the semester:
 
 - What was the most important concept you learned? <br>
-  N/A
+  I did not attend enough classes to be able to formulate a proper answer to this question.
 
 - What design trade-off did you face, and how did you resolve it? <br>
   N/A
