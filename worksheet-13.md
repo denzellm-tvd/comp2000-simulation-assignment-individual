@@ -27,28 +27,77 @@ public void update() {
         strategy.chooseAndMove(this, world);
     }
 ```
+```
+// MoveStrategy.java
+@FunctionalInterface
+public interface MoveStrategy {
+    void chooseAndMove(Ant ant, World world);
+}
+```
+```
+// Movement.java
+public final class Movement {
+     public static void random(Ant ant, World world) {
+        ant.randomMove();
+    }
 
+    public static void followFoodTrail(Ant ant, World world) {
+        FoodSource preferred = ant.getPreferredSource();
+        Pheromone next = world.findFoodTrail(ant.getX(), ant.getY(), 30, preferred);
+        if (next != null) {
+            ant.setPreferredSource(next.getFoodSource());
+            ant.moveTowards(next.getX(), next.getY());
+        } else {
+            ant.randomMove();
+        }
+    }
+
+    public static void goHome(Ant ant, World world) {
+        ant.moveTowards(world.getNest().getX(), world.getNest().getY());
+    }
+
+    public static FoodSource nearestFood(Ant ant, World world, double range) {
+        return world.getFoodSources().stream()
+                .filter(FoodSource::hasFood)
+                .filter(food -> ant.distanceTo(food.getX(), food.getY()) <= range)
+                .min(Comparator.comparingDouble(food -> ant.distanceTo(food.getX(), food.getY())))
+                .orElse(null);
+    }
+}
+```
 
 **1.3.** For each pattern, explain why you chose it over an alternative. What trade-off did you make? <br>
-
-
-
-
+The Strategy pattern was chosen to handle the varying behaviours between the different types of ants. It was chosen over an alternative such as conditional structures (like if-else or switch) within a single class because using it would violate the Open/Closed Principle, making the class fragile and difficult to maintain. The Strategy pattern solves this by using composition, allowing the system to remain decoupled and enabling behaviors to be swapped dynamically when running.
 
 ---
 
 ## 2. Streams / Lambdas / Parallelism
 
 **2.1.** List every file in your project that uses lambda expressions or the Streams API. <br>
-
-
-
-
+* Colony.java
+* Movement.java
+* World.java
 
 **2.2.** For the most sophisticated use, paste the code and explain: what does it do, and why was a stream/lambda better than a loop? <br>
-
-
-
+```
+// World.java
+public Pheromone findFoodTrail(double x, double y, double range, FoodSource preferredSource) {
+        double distanceFromNest = Math.hypot(x - nest.getX(), y - nest.getY());
+        return pheromones.stream()
+                .filter(Pheromone::isActive)
+                .filter(p -> p.getFoodSource() != null)
+                .filter(p -> Math.hypot(p.getX() - x, p.getY() - y) <= range)
+                .filter(p -> {
+                    double progress = Math.hypot(p.getX() - nest.getX(), p.getY() - nest.getY()) - distanceFromNest;
+                    return progress > 0.000001;
+                })
+                .max(Comparator
+                        .comparing((Pheromone p) -> p.getFoodSource() == preferredSource)
+                        .thenComparingDouble(p -> Math.hypot(p.getX() - nest.getX(), p.getY() - nest.getY()) - distanceFromNest)
+                        .thenComparingDouble(Pheromone::getStrength))
+                .orElse(null);
+    }
+```
 
 
 **2.3.** Did you use parallel streams, custom collectors, or the Fork/Join framework? If yes, how did you ensure thread safety? If no, where could parallelism be introduced? <br>
@@ -68,7 +117,7 @@ N/A
 
 
 **3.2.** Paste a code snippet or describe a design decision that demonstrates emergent behaviour, non-trivial complexity, or a genuinely surprising outcome. <br>
-
+N/A
 
 
 
